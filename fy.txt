@@ -20,4 +20,4 @@ Push failed: Failed with error: fatal: unable to access ‘https://github.com/HLQ
 打开git bash，键入以下命令，从而关闭证书校验。
 
 
-git config --system http.sslverify false
+git config --system http.sslverify false  true
