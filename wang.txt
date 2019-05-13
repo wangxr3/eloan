@@ -1,0 +1,5 @@
+怎么修改Git remote add时使用的远程仓库？
+git remote rm origin 
+git remote add origin git@github.com:Liutos/foobar.gitxin
+
+京东今年到的长觉得基督教
