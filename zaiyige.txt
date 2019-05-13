@@ -1,24 +1,5 @@
 怎么修改Git remote add时使用的远程仓库？
 git remote rm origin 
-git remote add origin git@github.com:Liutos/foobar.git
+git remote add origin git@github.com:Liutos/foobar.gitxin
 
-
-话说前一段时间从GitHub上更新提交代码，总是报如下的错误
-
-
-Push failed: Failed with error: fatal: unable to access ‘https://github.com/HLQ-Struggle/TextWatchers.git/‘: error setting certificate verify locations
-
-关键点：error setting certificate verify locations
-
-大体猜测为：证书地址设置有误。
-
-
-
-大家都知道，使用GitHub一般会有SSL以及Https俩种方式进行验证有效性
-
-
-打开git bash，键入以下命令，从而关闭证书校验。
-
-
-git config --system http.sslverify false
-
+京东今年到的长觉得基督教
