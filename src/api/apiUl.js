@@ -13,6 +13,9 @@ const apiURL = {
   common: {
     getParameters: `${interfaceRoot}loan/common/getParameters.do` // 多参数查询接口---商户贷/现金贷
   },
+  userInfo: {
+    getPersonBaseInfo: `${interfaceRoot}loan/userInfo/getPersonBaseInfo.do` // 用户信息查询
+  },
   imgurl: `${imgRoot}`
 }
 export default apiURL

@@ -7,6 +7,7 @@
         </mt-header>
         <div class="top">
             <div :style="myBg"></div>
+            <div class="message">{{name}},你好<br>{{mobile}}</div>
         </div>
         <div class="cell">
             <mt-cell title="资料提额" is-link to="">
@@ -28,20 +29,36 @@
             <mt-cell title="在线客服" is-link to="">
             <img slot="icon" src="~assets/images/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="联系我们"" is-link to="">
+            <mt-cell title="联系我们" is-link to="">
             <img slot="icon" src="~assets/images/logo.png" width="24" height="24">
             </mt-cell>
         </div>
     </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
+import { getPersonBaseInfo } from 'api/request'
+// import {ajax} from 'api/config'
+// import apiURL from 'api/apiUl'
 export default {
     data () {
         return{
              myBg: {
                   backgroundImage: `url(${require('@/assets/images/my_bg.png')})`
-             }
+             },
+             name: '',
+             mobile: ''
+        }
+    },
+    created() {
+        this.getPerson();
+    },
+    methods:{
+        getPerson (){
+            getPersonBaseInfo({}).then(data =>{
+               this.name = data.personName;
+               this.mobile = data.mobile;
+            })
         }
     }
 }
@@ -52,6 +69,12 @@ export default {
 .top div{
     height: px2rem(330);
     background-size: 100% 100%;
+}
+.message{
+    position: absolute;
+    top: px2rem(150);
+    left: px2rem(250);
+    color: #fff;
 }
 .cell{
 text-align: left;
