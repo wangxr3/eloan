@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const env = 'dev'
-const debug = window.location.host !== 'wap.qianbaoyidai.com'
+const debug = window.location.host !== 'wap.qianbaoxiaodai.com'
 // 返回结果成功
 export const RESULT_CODE_OK = '00000000'
 export const RESULT_M_CODE_OK = 200

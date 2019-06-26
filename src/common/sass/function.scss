@@ -1,0 +1,9 @@
+@function strip-unit($number){
+  @return $number / ($number*0 +1);
+}
+
+@function px2rem( $px ){
+  @return strip-unit($px) *320/$designWidth/20 * 1rem;
+}
+
+$designWidth : 750;  //如设计图是750
