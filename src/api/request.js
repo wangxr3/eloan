@@ -8,7 +8,17 @@ import apiURL from './apiUl'
  */
 export function getPersonBaseInfo (params) {
   return ajax(apiURL.userInfo.getPersonBaseInfo, params).then(res => {
-    console.log(res)
+    return Promise.resolve(res)
+  })
+}
+
+/**
+ * 个人信息查询
+ * @param token //
+ * @returns {Promise.<TResult>}
+ */
+export function getBillList (params) {
+  return ajax(apiURL.refund.getLoanApplys, params).then(res => {
     return Promise.resolve(res)
   })
 }

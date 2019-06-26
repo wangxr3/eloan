@@ -14,7 +14,7 @@
             <span style="color: green">更多认证，额度更高</span>
             <img slot="icon" src="~assets/images/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="账单管理" is-link to="">
+            <mt-cell title="账单管理" is-link to="/bill_list">
             <img slot="icon" src="~assets/images/logo.png" width="24" height="24">
             </mt-cell>
             <mt-cell title="优惠券管理" is-link to="">
@@ -38,8 +38,6 @@
 
 <script type="text/ecmascript-6">
 import { getPersonBaseInfo } from 'api/request'
-// import {ajax} from 'api/config'
-// import apiURL from 'api/apiUl'
 export default {
     data () {
         return{
