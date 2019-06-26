@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!-- <img src="./assets/images/logo.png"> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-((doc, win) => {
+(((doc, win) => {
   let docEl = doc.documentElement
   let resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'
   let recalc = function () {
@@ -16,11 +17,26 @@
   if (!doc.addEventListener) return
   win.addEventListener(resizeEvt, recalc, false)
   doc.addEventListener('DOMContentLoaded', recalc, false)
-})(document, window)
+})(document, window))
+
+export default {
+  name: 'App'
+}
 </script>
-<style media="screen">
-@import 'common/sass/reset.css';
-html,body,#app{
-   height: 100%;
+
+<style>
+body{
+  margin:0;
+  background: #F0EFF5;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  /* margin-top: 60px; */
+  margin: 0;
+  padding: 0;
 }
 </style>

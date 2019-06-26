@@ -14,8 +14,10 @@ const apiURL = {
     getParameters: `${interfaceRoot}loan/common/getParameters.do` // 多参数查询接口---商户贷/现金贷
   },
   userInfo: {
-    getPersonBaseInfo: `${interfaceRoot}loan/userInfo/getPersonBaseInfo.do`,
-    userAddInfo: `${interfaceRoot}loan/easyLoan/loanCreditApply/userAddInfo.do`
+    getPersonBaseInfo: `${interfaceRoot}loan/userInfo/getPersonBaseInfo.do` // 用户信息查询
+  },
+  refund: {
+    getLoanApplys: `${interfaceRoot}loan/plan/getLoanApplys.do` // 获取账单列表
   },
   imgurl: `${imgRoot}`
 }

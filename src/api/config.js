@@ -51,7 +51,7 @@ export function ajax (url, param) {
     channel = '01'
     localStorage.setItem('channel', channel)
   }
-  let param01 = {'sourceOrganizationNo': sourceOrganizationNo, 'productType': productType, 'channel': channel}
+  let param01 = {'sourceOrganizationNo': sourceOrganizationNo, 'productType': productType, 'channel': channel, 'sourceProduct': '03'}
   let params = Object.assign({}, param, param01)
   localStorage.getItem('sc') && (params = Object.assign({}, param, param01, {'subOrganizationNo': localStorage.getItem('sc')}))
   localStorage.getItem('token') && (params = Object.assign({}, param, param01, {'token': localStorage.getItem('token')}))
