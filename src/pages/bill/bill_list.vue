@@ -42,7 +42,7 @@ export default {
     },
     getList () {
       getBillList({}).then(data => {
-        if (data.effectiveLoanList === '') {
+        if (data.effectiveLoanList.length === 0) {
           this.hasList = false
         } else {
           this.billList = data.effectiveLoanList
