@@ -17,7 +17,8 @@ const apiURL = {
     getPersonBaseInfo: `${interfaceRoot}loan/userInfo/getPersonBaseInfo.do` // 用户信息查询
   },
   refund: {
-    getLoanApplys: `${interfaceRoot}loan/plan/getLoanApplys.do` // 获取账单列表
+    getLoanApplys: `${interfaceRoot}loan/plan/getLoanApplys.do`, // 获取账单列表
+    getLoanApplyDetail: `${interfaceRoot}loan/plan/getLoanApplyDetail.do` // 获取账单详情
   },
   imgurl: `${imgRoot}`
 }

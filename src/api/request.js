@@ -13,12 +13,23 @@ export function getPersonBaseInfo (params) {
 }
 
 /**
- * 个人信息查询
+ * 查询账单列表
  * @param token //
  * @returns {Promise.<TResult>}
  */
 export function getBillList (params) {
   return ajax(apiURL.refund.getLoanApplys, params).then(res => {
+    return Promise.resolve(res)
+  })
+}
+
+/**
+ * 查询账单详情
+ * @param token //
+ * @returns {Promise.<TResult>}
+ */
+export function getLoanApplyDetail (params) {
+  return ajax(apiURL.refund.getLoanApplyDetail, params).then(res => {
     return Promise.resolve(res)
   })
 }

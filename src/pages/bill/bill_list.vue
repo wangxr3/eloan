@@ -6,11 +6,11 @@
             </router-link>
         </mt-header>
         <div v-if="hasList">
-            <div  class="order" v-for= " (arr,index) in billList" :key="index">
+            <div  class="order" v-for= " (arr,index) in billList" :key="index" @click="detail(arr)">
                 <mt-cell class="amount" title="借款金额" :label="arr.amount"></mt-cell>
                 <mt-cell class="period" title="期限" :label="arr.periodValue+'期'"></mt-cell>
                 <mt-cell class="date" title="放款日期" :label="arr.loanTime"></mt-cell>
-                <mt-cell class="status" @click="detail()" is-link :value="caseStatus(arr.status)"></mt-cell>
+                <mt-cell class="status"  is-link :value="caseStatus(arr.status)"></mt-cell>
             </div>
         </div>
         <div class="none" v-else>
@@ -28,8 +28,7 @@ export default {
       noneList: {
         backgroundImage: `url(${require('@/assets/images/no-data.png')})`
       },
-      hasList: '',
-      loanNo: '',
+      hasList: true,
       billList: []
     }
   },
@@ -47,12 +46,11 @@ export default {
         } else {
           this.billList = data.effectiveLoanList
           this.hasList = true
-          this.loanNo = data.effectiveLoanList.loanNo
         }
       })
     },
-    detail () {
-      this.$router.push({name: '/billDetail', params: {'loanNo': this.loanNo, 'from': 'h5'}})
+    detail (arr) {
+      this.$router.push({path: '/bill_detail', query: {'loanNo': arr.loanNo, 'from': 'h5'}})
     },
     caseStatus (status) {
       switch (status) {
