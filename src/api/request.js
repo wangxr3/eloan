@@ -13,7 +13,7 @@ export function getPersonBaseInfo (params) {
 }
 
 /**
- * 个人信息查询
+ * 查询账单列表
  * @param token //
  * @returns {Promise.<TResult>}
  */
@@ -22,7 +22,6 @@ export function getBillList (params) {
     return Promise.resolve(res)
   })
 }
-
 /**
  * 广告位查询
  * @param token //
@@ -36,4 +35,14 @@ export function advert (params) {
 
 export function imgUrl (img) {
   return apiURL.imgurl + img
+}
+/**
+ * 查询账单详情
+ * @param token //
+ * @returns {Promise.<TResult>}
+ */
+export function getLoanApplyDetail (params) {
+  return ajax(apiURL.refund.getLoanApplyDetail, params).then(res => {
+    return Promise.resolve(res)
+  })
 }
