@@ -42,11 +42,11 @@ export default {
         },
         status(repaymentStatus) {
             switch(repaymentStatus) {
-                case 10:
+                case '10':
                 return '待还款'
-                case 20:
+                case '20':
                 return '还款逾期'
-                case 30:
+                case '30':
                 return '已结清'            
             }
         }
