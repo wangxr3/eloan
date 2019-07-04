@@ -13,19 +13,21 @@ export const global = (() => {
   let imgRoot // 图片根路径
   let dev = false // 是否是开发环境
   let imgHost = `img${Math.floor(Math.random() * 8)}.qianbao.com/`
-
+  let marketAddress
   if (debug) {
     if (env === 'dev') {
       dev = true
-      host = '172.28.38.83'
+      host = 'test.qianbaocard.com:23480'
+      marketAddress = `https://sit-apis.qianbao.com/`
     }
     protocol = 'http:'
     imgHost = '172.28.38.34/'
     // imgHost = 'dev-apis.qianbao.com/loan/v1/'
   }
+  marketAddress = `https://sit-apis.qianbao.com/`
   interfaceRoot = `${protocol}//${host}/`
   imgRoot = `${protocol}//${imgHost}`
-  return {interfaceRoot, imgRoot, dev}
+  return {interfaceRoot, imgRoot, dev, marketAddress}
 })()
 
 /**
@@ -73,6 +75,89 @@ export function ajax (url, param) {
     data: params,
     transformRequest: transformRequest,
     timeout: 120000
+  })
+    .then(res => {
+      return Promise.resolve(res.data)
+    })
+    .catch(error => {
+      console.log(error)
+      let res = {resultCode: '408', resultMessage: '请求超时，请重试'}
+      // 这里是返回状态码不为200时候的错误处理
+      if (error && error.response) {
+        res.resultCode = error.response.status
+        switch (error.response.status) {
+          case 400:
+            res.resultMessage = '请求错误'
+            break
+          case 401:
+            res.resultMessage = '未授权，请登录'
+            break
+          case 403:
+            res.resultMessage = '拒绝访问'
+            break
+          case 404:
+            res.resultMessage = `请求地址出错: ${error.response.config.url}`
+            break
+          case 408:
+            res.resultMessage = '请求超时，请重试'
+            break
+          case 500:
+            res.resultMessage = '服务器内部错误'
+            break
+          case 501:
+            res.resultMessage = '服务未实现'
+            break
+          case 502:
+            res.resultMessage = '网关错误'
+            break
+          case 503:
+            res.resultMessage = '服务不可用'
+            break
+          case 504:
+            res.resultMessage = '服务器超时未响应'
+            break
+          case 505:
+            res.resultMessage = 'HTTP版本不受支持'
+            break
+          default:
+            break
+        }
+      }
+      return Promise.resolve(res)
+    })
+}
+export function market (url, param) {
+  // 请求接口的共公参数
+  let sourceOrganizationNo = localStorage.getItem('sourceOrganizationNo')
+  let productType = localStorage.getItem('productType')
+  let channel = localStorage.getItem('channel')
+  if (!sourceOrganizationNo || sourceOrganizationNo === 'undefined') {
+    sourceOrganizationNo = 'O20180507113389'
+    localStorage.setItem('sourceOrganizationNo', sourceOrganizationNo)
+  }
+  if (!productType) {
+    productType = '31'
+    localStorage.setItem('productType', productType)
+  }
+  if (!channel) {
+    channel = '01'
+    localStorage.setItem('channel', channel)
+  }
+  let param01 = {'sourceOrganizationNo': sourceOrganizationNo, 'productType': productType, 'channel': channel, 'sourceProduct': '03', 'appType': 'H5', 'organizationNo': sourceOrganizationNo}
+  let params = Object.assign({}, param, param01)
+  localStorage.getItem('token') && (params = Object.assign({}, param, param01, {'token': localStorage.getItem('token')}))
+  let token = ''
+  localStorage.getItem('token') && (token = localStorage.getItem('token'))
+  return axios({
+    url: url,
+    data: params,
+    method: 'post',
+    transformRequest: [function (params) {
+      return JSON.stringify(params)
+    }],
+    timeout: 130000,
+    headers: {'Content-Type': 'application/json', 'X-Access-Token': token},
+    async: false
   })
     .then(res => {
       return Promise.resolve(res.data)
