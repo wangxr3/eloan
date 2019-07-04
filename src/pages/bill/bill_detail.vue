@@ -7,7 +7,7 @@
         </mt-header>
         <div class="detail_top">
             <div>借款金额（元）</div>
-            <div>￥{{data.authAmount}}&nbsp;{{status(data.topPlan.repaymentStatus)}}</div>
+            <div>￥{{data.authAmount}}&nbsp;{{status(repaymentStatus)}}</div>
             <div>贷款管理费（一次性收取）￥（未缴￥）</div>
             <div>放款卡：{{data.loanBankName}}({{accountformat(data.loanAccountNo)}})</div>
             <div>一次性还款卡：{{data.bankName}}({{accountformat(data.accountNo)}})</div>
@@ -24,7 +24,8 @@ import { getLoanApplyDetail } from 'api/request'
 export default {
   data () {
     return {
-      data: ''
+      data: '',
+      repaymentStatus: ''
     }
   },
   created () {
@@ -34,7 +35,7 @@ export default {
     getLoanApplyDetail () {
       getLoanApplyDetail({'loanNo': this.$route.query.loanNo}).then(data => {
         this.data = data
-        alert(data.topPlan.repaymentStatus)
+        this.repaymentStatus = data.topPlan.repaymentStatus
       })
     },
     accountformat (loanAccountNo) {
@@ -42,12 +43,14 @@ export default {
     },
     status (repaymentStatus) {
       switch (repaymentStatus) {
-        case 10:
+        case '10':
           return '待还款'
-        case 20:
+        case '20':
           return '还款逾期'
-        case 30:
+        case '30':
           return '已结清'
+        default:
+          return '都不是'
       }
     }
   }
