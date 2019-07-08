@@ -28,7 +28,7 @@ export default {
       noneList: {
         backgroundImage: `url(${require('@/assets/images/no-data.png')})`
       },
-      hasList: true,
+      hasList: '',
       billList: []
     }
   },
