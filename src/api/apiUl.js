@@ -1,6 +1,6 @@
 import { global } from 'api/config'
 
-const { interfaceRoot, imgRoot } = global
+const { interfaceRoot, imgRoot, marketAddress } = global
 
 /**
  * 接口地址集合
@@ -19,6 +19,9 @@ const apiURL = {
   refund: {
     getLoanApplys: `${interfaceRoot}loan/plan/getLoanApplys.do`, // 获取账单列表
     getLoanApplyDetail: `${interfaceRoot}loan/plan/getLoanApplyDetail.do` // 获取账单详情
+  },
+  market: {
+    advert: `${marketAddress}market/v1/advert` // 广告位
   },
   imgurl: `${imgRoot}`
 }

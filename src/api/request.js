@@ -1,4 +1,4 @@
-import {ajax} from './config'
+import {ajax, market} from './config'
 import apiURL from './apiUl'
 
 /**
@@ -22,7 +22,20 @@ export function getBillList (params) {
     return Promise.resolve(res)
   })
 }
+/**
+ * 广告位查询
+ * @param token //
+ * @returns {Promise.<TResult>}
+ */
+export function advert (params) {
+  return market(apiURL.market.advert, params).then(res => {
+    return Promise.resolve(res)
+  })
+}
 
+export function imgUrl (img) {
+  return apiURL.imgurl + img
+}
 /**
  * 查询账单详情
  * @param token //

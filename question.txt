@@ -1,24 +1,45 @@
-ÔõÃ´ÐÞ¸ÄGit remote addÊ±Ê¹ÓÃµÄÔ¶³Ì²Ö¿â£¿
+ï¿½ï¿½Ã´ï¿½Þ¸ï¿½Git remote addÊ±Ê¹ï¿½Ãµï¿½Ô¶ï¿½Ì²Ö¿â£¿
 git remote rm origin 
 git remote add origin git@github.com:Liutos/foobar.git
 
 
-»°ËµÇ°Ò»¶ÎÊ±¼ä´ÓGitHubÉÏ¸üÐÂÌá½»´úÂë£¬×ÜÊÇ±¨ÈçÏÂµÄ´íÎó
+ï¿½ï¿½ËµÇ°Ò»ï¿½ï¿½Ê±ï¿½ï¿½ï¿½GitHubï¿½Ï¸ï¿½ï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½Ç±ï¿½ï¿½ï¿½ï¿½ÂµÄ´ï¿½ï¿½ï¿½
+Push failed: Failed with error: fatal: unable to access ï¿½ï¿½https://github.com/HLQ-Struggle/TextWatchers.git/ï¿½ï¿½: error setting certificate verify locations
 
+ï¿½Ø¼ï¿½ï¿½ã£ºerror setting certificate verify locations
 
-Push failed: Failed with error: fatal: unable to access ¡®https://github.com/HLQ-Struggle/TextWatchers.git/¡®: error setting certificate verify locations
-
-¹Ø¼üµã£ºerror setting certificate verify locations
-
-´óÌå²Â²âÎª£ºÖ¤ÊéµØÖ·ÉèÖÃÓÐÎó¡£
-
-
-
-´ó¼Ò¶¼ÖªµÀ£¬Ê¹ÓÃGitHubÒ»°ã»áÓÐSSLÒÔ¼°HttpsÁ©ÖÖ·½Ê½½øÐÐÑéÖ¤ÓÐÐ§ÐÔ
-
-
-´ò¿ªgit bash£¬¼üÈëÒÔÏÂÃüÁî£¬´Ó¶ø¹Ø±ÕÖ¤ÊéÐ£Ñé¡£
-
-
+ï¿½ï¿½ï¿½ï¿½Â²ï¿½Îªï¿½ï¿½Ö¤ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½Ò¶ï¿½Öªï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½GitHubÒ»ï¿½ï¿½ï¿½ï¿½ï¿½SSLï¿½Ô¼ï¿½Httpsï¿½ï¿½ï¿½Ö·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Ð§ï¿½ï¿½
+ï¿½ï¿½git bashï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£¬ï¿½Ó¶ï¿½ï¿½Ø±ï¿½Ö¤ï¿½ï¿½Ð£ï¿½é¡£
 git config --system http.sslverify false   true
+
+
+vueï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½
+Component template should contain exactly one root element. If you are using v-if on multiple elemen
+Ô­ï¿½ï¿½vueÄ£ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½divï¿½ï¿½ï¿½ï¿½ï¿½Ç±ï¿½Ä±ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+
+Vueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
+
+https://www.cnblogs.com/zishang91/p/7594997.html
+1ï¿½ï¿½ ï¿½Åµï¿½staticÄ¿Â¼ï¿½ï¿½
+2ï¿½ï¿½ Í¨ï¿½ï¿½importï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬Ô´Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ê½
+
+
+
+
+
+https://blog.csdn.net/qq_25324335/article/details/81260909ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+
+
+https://segmentfault.com/a/1190000017052598   vueÂ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+npm install sass-loader --save;
+npm install node-sass --save;
+
+
+
+
 
