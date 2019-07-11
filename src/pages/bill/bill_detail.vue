@@ -8,7 +8,7 @@
         <div class="detail_top">
             <div>借款金额（元）</div>
             <div class="dueAmount">￥{{data.authAmount}}&nbsp;{{status(topPlan.repaymentStatus)}}</div>
-            <div>贷款管理费（一次性收取）￥{{}}（未缴￥）</div>
+            <!-- <div>贷款管理费（一次性收取）￥{{}}（未缴￥）</div> -->
             <div>放款卡：{{data.loanBankName}}({{accountformat(data.loanAccountNo)}})</div>
             <div>一次性还款卡：{{data.bankName}}({{accountformat(data.accountNo)}})</div>
             <div>申请人：{{data.accountName}}</div>
@@ -19,13 +19,13 @@
             <mt-cell class="amount" title="应还"></mt-cell>
             <mt-cell class="status" title="状态"></mt-cell>
             <div  class="detail" v-for= " (arr,index) in billDetail" :key="index" @click="fee(arr)">
-                <div class="detail_list" @click="showCost()">
+                <div class="detail_list" @click="showCost(index)">
                   <mt-cell class="date" :title="arr.dueDate" ></mt-cell>
                   <mt-cell class="period" :title="arr.perdNo" ></mt-cell>
                   <mt-cell class="amount" :title="arr.dueAmount"></mt-cell>
                   <mt-cell class="status" :title="status(arr.repaymentStatus)"></mt-cell>
                 </div>
-                <div class="cost_detail">
+                <div class="cost_detail" :class="{xs:showFree == index}">
                   <p>本金<span>{{amountformat(arr.principal)}}</span></p>
                   <p>利息<span>{{amountformat(arr.interest)}}</span></p>
                   <div v-for = "list in arr.chargeDetailList">
@@ -55,7 +55,8 @@ export default {
       topPlan: '',
       toRepay: '',
       chargeDetailList: '',
-      repaymentPlan: ''
+      repaymentPlan: '',
+      showFree: -1
     }
   },
   created () {
@@ -76,6 +77,9 @@ export default {
         queryDeductionRepaymentPlan({'applyNo': this.$route.query.loanNo}).then(data => {
           this.repaymentPlan = data;
         })
+    },
+    showCost (index){
+      this.showFree == index ? this.showFree = -1 : this.showFree = index
     },
     accountformat (loanAccountNo) {
       if(loanAccountNo){
@@ -141,6 +145,9 @@ export default {
     font-size: px2rem(22);
     background: #FFF;
     display: none;
+    p{
+      margin: 0;
+    }
   }
   .yc{
     display: none;
