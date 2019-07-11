@@ -20,6 +20,9 @@ const apiURL = {
     getLoanApplys: `${interfaceRoot}loan/plan/getLoanApplys.do`, // 获取账单列表
     getLoanApplyDetail: `${interfaceRoot}loan/plan/getLoanApplyDetail.do` // 获取账单详情
   },
+  deduct: {
+    queryDeductionRepaymentPlan: `${interfaceRoot}loan/deduct/queryDeductionRepaymentPlan.do`
+  },
   market: {
     advert: `${marketAddress}market/v1/advert` // 广告位
   },
