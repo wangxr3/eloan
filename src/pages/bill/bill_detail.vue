@@ -48,9 +48,17 @@
             <mt-button class="button early">提前结清</mt-button>
             <mt-button class="button repay" @click="repay">主动还款</mt-button>
         </div>
+<<<<<<< HEAD
+        <div class="detail_button"></div>
+        <div class="loading-wrapper" v-show="isLoading">
+             <loading title="数据量大，请耐心等待..."></loading>
+        </div>
+=======
+>>>>>>> 15a766654e9f9e09bfdf2f2a19ece5ef9862636a
     </div>
 </template>
 <script>
+import Loading from 'base/loading/loading'
 import { getLoanApplyDetail } from 'api/request'
 import { queryDeductionRepaymentPlan } from 'api/request'
 export default {
@@ -112,7 +120,7 @@ export default {
             case '20':
             return '还款逾期'
             default :
-            return '已结清'            
+            return '已结清'
         }
     },
     isToRepay(){
@@ -128,6 +136,9 @@ export default {
     amountshow(amount){
       return (amount == 0 || amount == '') ? 'yc' : 'xs';
     }
+  },
+  components: {
+    Loading
   }
 }
 </script>

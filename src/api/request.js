@@ -46,14 +46,21 @@ export function getLoanApplyDetail (params) {
     return Promise.resolve(res)
   })
 }
-
 /**
- * 查询可还账单
+ * 登录
  * @param token //
  * @returns {Promise.<TResult>}
  */
-export function queryDeductionRepaymentPlan (params) {
-  return ajax(apiURL.deduct.queryDeductionRepaymentPlan, params).then(res => {
+export function getMobileMessage (params) {
+  return ajax(apiURL.sms.getMobileMessage, params).then(res => {
+    return Promise.resolve(res)
+  })
+}
+export function getImageCode (phone) {
+  return apiURL.sms.getImageCode + '?' + phone + '&' + Math.random()
+}
+export function login (params) {
+  return ajax(apiURL.login.login, params).then(res => {
     return Promise.resolve(res)
   })
 }
