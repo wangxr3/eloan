@@ -18,7 +18,7 @@
             <mt-cell class="period" title="期数"></mt-cell>
             <mt-cell class="amount" title="应还"></mt-cell>
             <mt-cell class="status" title="状态"></mt-cell>
-            <div  class="detail" v-for= " (arr,index) in billDetail" :key="index" @click="fee(arr)">
+            <div  class="detail" v-for= " (arr,index) in billDetail" :key="index">
                 <div class="detail_list" @click="showCost(index)">
                   <mt-cell class="date" :title="arr.dueDate" ></mt-cell>
                   <mt-cell class="period" :title="arr.perdNo" ></mt-cell>
@@ -38,9 +38,15 @@
                 </div>
             </div>
         </div>
+        <div class="mask" v-show="hasRepay">
+          <div class="list_box">
+            <mt-checklist title="确认还款" v-model="value" :options="repayPlanList"></mt-checklist>
+          </div>
+          <div>{{value}}</div>
+        </div>
         <div class="detail_button" v-show="toRepay">
             <mt-button class="button early">提前结清</mt-button>
-            <mt-button class="button repay">主动还款</mt-button>
+            <mt-button class="button repay" @click="repay">主动还款</mt-button>
         </div>
     </div>
 </template>
@@ -56,7 +62,10 @@ export default {
       toRepay: '',
       chargeDetailList: '',
       repaymentPlan: '',
-      showFree: -1
+      showFree: -1,
+      value:[],
+      repayPlanList: [],
+      hasRepay: ''
     }
   },
   created () {
@@ -76,8 +85,18 @@ export default {
     queryDeductionRepaymentPlan (){
         queryDeductionRepaymentPlan({'applyNo': this.$route.query.loanNo}).then(data => {
           this.repaymentPlan = data;
+          if(data.repayPlanList.length > 0){
+            this.hasRepay = true;
+            for(var i=0; i<data.repayPlanList.length;i++){
+              this.repayPlanList.push(data.repayPlanList[i].deadlineDate +"   "+data.repayPlanList[i].periodNo +"  "+data.repayPlanList[i].repayAmount +"  "+ data.repayPlanList[i].settleFlag) 
+            }
+          }else{
+            this.hasRepay = false;
+          }
+          // this.repayPlanList = data.repayPlanList
         })
     },
+    repay (){},
     showCost (index){
       this.showFree == index ? this.showFree = -1 : this.showFree = index
     },
@@ -154,5 +173,7 @@ export default {
   }
   .xs{
     display: block;
+  }
+  .mask{
   }
 </style>
