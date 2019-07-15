@@ -23,6 +23,10 @@ const apiURL = {
   market: {
     advert: `${marketAddress}market/v1/advert` // 广告位
   },
+  sms: {
+    getMobileMessage: `${interfaceRoot}loan/sms/getMobileMessage.do`,
+    getImageCode: `${interfaceRoot}loan/sms/getImageCode.do`
+  },
   imgurl: `${imgRoot}`
 }
 export default apiURL

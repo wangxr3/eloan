@@ -5,6 +5,7 @@ import Home from '@/pages/home/home'
 import my from '@/pages/my/my'
 import billList from '@/pages/bill/bill_list'
 import billDetail from '@/pages/bill/bill_detail'
+import login from '@/pages/login/login'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -31,6 +32,11 @@ export default new Router({
       path: '/bill_detail',
       name: 'bill_detail',
       component: billDetail
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     }
   ]
 })

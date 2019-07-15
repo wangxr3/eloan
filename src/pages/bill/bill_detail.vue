@@ -17,15 +17,20 @@
 
         </div>
         <div class="detail_button"></div>
+        <div class="loading-wrapper" v-show="isLoading">
+             <loading title="数据量大，请耐心等待..."></loading>
+        </div>
     </div>
 </template>
 <script>
+import Loading from 'base/loading/loading'
 import { getLoanApplyDetail } from 'api/request'
 export default {
   data () {
     return {
       data: '',
-      repaymentStatus: ''
+      repaymentStatus: '',
+      isLoading: true
     }
   },
   created () {
@@ -34,12 +39,16 @@ export default {
   methods: {
     getLoanApplyDetail () {
       getLoanApplyDetail({'loanNo': this.$route.query.loanNo}).then(data => {
+        this.isLoading = false
+        this.flag = true
         this.data = data
         this.repaymentStatus = data.topPlan.repaymentStatus
       })
     },
     accountformat (loanAccountNo) {
-      return `${loanAccountNo.substr((loanAccountNo.length - 4), 4)}`
+      if (loanAccountNo) {
+        return `${loanAccountNo.substr((loanAccountNo.length - 4), 4)}`
+      }
     },
     status (repaymentStatus) {
       switch (repaymentStatus) {
@@ -47,15 +56,15 @@ export default {
           return '待还款'
         case '20':
           return '还款逾期'
-        case '30':
-          return '已结清'
         default:
-          return '都不是'
+          return '已结清'
       }
     }
+  },
+  components: {
+    Loading
   }
 }
 </script>
 <style lang="sass" scoped>
-
 </style>
