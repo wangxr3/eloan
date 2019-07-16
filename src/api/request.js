@@ -47,6 +47,16 @@ export function getLoanApplyDetail (params) {
   })
 }
 /**
+ * 查询账单详情
+ * @param token //
+ * @returns {Promise.<TResult>}
+ */
+export function queryDeductionRepaymentPlan (params) {
+  return ajax(apiURL.deduct.queryDeductionRepaymentPlan, params).then(res => {
+    return Promise.resolve(res)
+  })
+}
+/**
  * 登录
  * @param token //
  * @returns {Promise.<TResult>}
@@ -57,7 +67,7 @@ export function getMobileMessage (params) {
   })
 }
 export function getImageCode (phone) {
-  return apiURL.sms.getImageCode + '?' + phone + '&' + Math.random()
+  return apiURL.sms.getImageCode + '?mobile=' + phone + '&' + Math.random()
 }
 export function login (params) {
   return ajax(apiURL.login.login, params).then(res => {
