@@ -55,7 +55,7 @@ export default {
               const today = '' + now.getFullYear() + now.getMonth() + now.getDate()
               const uNo = localStorage.getItem('uNo')
               const directObj = result[i].advertContentList[0]
-			        if (!directObj || localStorage.getItem(uNo + today + directObj.prcode + directObj.groupCode) === '1') {} else if (directObj) {
+              if (!directObj || localStorage.getItem(uNo + today + directObj.prcode + directObj.groupCode) === '1') {} else if (directObj) {
                 this.tc = true
                 this.first = true
                 const hasShow = uNo + today + directObj.prcode + directObj.groupCode

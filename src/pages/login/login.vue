@@ -70,6 +70,9 @@ export default {
       login(params).then(data => {
         console.log(data)
         if (data.resultCode === '00000000') {
+          localStorage.setItem('mobile', data.user.mobile)
+          localStorage.setItem('token', data.user.token)
+          localStorage.setItem('personName', data.user.personName)
           this.$router.push({ path: '/my' })
         } else {
           alert(data.resultMessage)

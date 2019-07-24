@@ -2,12 +2,10 @@
   <mt-popup v-model="regionVisible" position="bottom" class="region-popup">
     <div class="picker-btn-wrap">
       <span class="picker-cancel" @click="$emit('cancel')">取消</span>
-      <span class="picker-sure" @click="$emit('selectArea',myAddressProvince)">确定</span>
+      <span class="picker-sure" @click="$emit('selectArea',data_)">确定</span>
     </div>
     <mt-picker :slots="myAddressSlots" @change="onMyAddressChange" value-key="value">
     </mt-picker>
-    <!-- <p>地址3级联动：{{myAddressProvince}} {{myAddressCity}} {{myAddresscounty}}</p>
-    <p>地址3级联动code：{{provinceCode}} {{cityCode}} {{countyCode}}</p>-->
  </mt-popup>
 </template>
 
@@ -54,7 +52,8 @@ export default {
       countyCode: '',
       index: '0',
       index_c: '0',
-      index_q: '0'
+      index_q: '0',
+      data_: ''
     }
   },
   created () {
@@ -75,12 +74,20 @@ export default {
           picker.setSlotValues(2, countysArr)
         }
       }
+      let ssq = {}
       this.myAddressProvince = values[0].value
       this.myAddressCity = values[1].value
       this.myAddresscounty = values[2].value
       this.cityCode = values[1].id
       this.countyCode = values[2].id
       this.provinceCode = values[0].id
+      ssq.myAddressProvince = values[0].value
+      ssq.myAddressCity = values[1].value
+      ssq.myAddresscounty = values[2].value
+      ssq.cityCode = values[1].id
+      ssq.countyCode = values[2].id
+      ssq.provinceCode = values[0].id
+      this.data_ = ssq
     }
   },
   mounted () {
