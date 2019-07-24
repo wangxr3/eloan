@@ -139,11 +139,17 @@ export default {
       })
     },
     selectAddress (item) {
-      this.address = item
+      this.address = item.myAddressProvince + item.myAddressCity + item.myAddresscounty
       this.regionVisible = false
     },
     companyAddress_ (item) {
-      this.companyAddress = item
+      /* myAddressProvince
+         myAddressCity
+         myAddresscounty
+         cityCode
+         countyCode
+         provinceCode */
+      this.companyAddress = item.myAddressProvince + item.myAddressCity + item.myAddresscounty
       this.regionVisible_ = false
     },
     select_hy (item) {
