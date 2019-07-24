@@ -25,7 +25,7 @@
               :error="errors.phone"
           />
           <br>
-          <mt-button @click="eventMessage" v-show="flag" class="img_btn" size="large" type="danger">确定</mt-button>
+          <mt-button @click="eventMessage()" v-show="flag" class="img_btn" size="large" type="danger">确定</mt-button>
         <!-- 输入验证码 -->
         <InputGroup
             v-show="flag01"
@@ -64,7 +64,7 @@ export default {
     login () {
       let params = {
         'mobile': this.phone,
-        'password': this.erifyCode,
+        'password': this.verifyCode,
         'normal': '02'
       }
       login(params).then(data => {
@@ -89,6 +89,7 @@ export default {
       }
       let imgReg = /^[a-zA-Z0-9]{4}$/
       alert(this.imgcode)
+      alert(imgval)
       if (!imgReg.test(this.imgcode)) {
         alert('请输入正确的图形验证码')
         this.imgsrc = getImageCode(this.phone)
