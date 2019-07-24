@@ -36,7 +36,7 @@
         />
         <!-- 登录按钮 -->
       <br>
-      <mt-button v-show="flag01" class="btn" size="large" type="danger">登录</mt-button>
+      <mt-button @click.native="login" v-show="flag01" class="btn" size="large" type="danger">登录</mt-button>
   </div>
 </template>
 <script type="text/ecmascript-6">

@@ -66,7 +66,7 @@ export default {
       if (arr.linkType === '01') {
         window.location.href = arr.content
       } else if (arr.linkType === '11') {
-          this.tc = true 
+          this.tc = true
           this.second = true
           this.tcImg = arr
           this.adsTcevt(arr)
