@@ -34,7 +34,7 @@
             利息
             <span>{{amountformat(arr.interest)}}</span>
           </p>
-          <div v-for='list in arr.chargeDetailList'>
+          <div v-for='(list,index) in arr.chargeDetailList' :key='index'>
             <p :class='amountshow(list.chargeAmount)'>
               {{list.chargeName}}
               <span>{{amountformat(list.chargeAmount)}}</span>
@@ -137,7 +137,7 @@ export default {
                 new Date(repayEndDate).getTime() -
                   new Date(deadlineDate).getTime() >
                   0 &&
-                data.repayPlanList[i].settleFlag == 1
+                data.repayPlanList[i].settleFlag === 1
               ) {
                 this.repayPlanList.push(
                   data.repayPlanList[i].deadlineDate +

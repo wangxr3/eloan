@@ -66,16 +66,15 @@ export default {
       if (arr.linkType === '01') {
         window.location.href = arr.content
       } else if (arr.linkType === '11') {
-          this.tc = true 
-          this.second = true
-          this.tcImg = arr
-          this.adsTcevt(arr)
+        this.tc = true
+        this.second = true
+        this.tcImg = arr
+        this.adsTcevt(arr)
       } else if (arr.linkType === '02') {
-
+        window.location.href = global.advJump[arr.pwContent]
       }
     },
     adsTcevt (arr) {
-        alert(99)
       if (arr.pwLinkType === '01') {
         window.location.href = arr.pwContent
       } else if (arr.pwLinkType === '03') {
@@ -107,7 +106,7 @@ export default {
 .tc{
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
     position: absolute;
     top: 0;
     left: 0;

@@ -55,6 +55,7 @@ export default {
     getPersonBaseInfo({}).then(data => {
       this.name = data.personName
       this.mobile = data.mobile
+      localStorage.setItem('uNo', data.userNo)
     })
   }
   }

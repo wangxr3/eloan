@@ -11,7 +11,7 @@ export default {
     return {
       positionId: {
         lunbo: advPostiongIds.index_1,
-        tc: advPostiongIds.my,
+        tc: advPostiongIds.index_tc,
         small: advPostiongIds.index_2
       }
     }

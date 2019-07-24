@@ -17,7 +17,7 @@ export const global = (() => {
   if (debug) {
     if (env === 'dev') {
       dev = true
-      host = '172.28.38.108'
+      host = '172.28.38.83'
       marketAddress = `https://sit-apis.qianbao.com/`
     }
     protocol = 'http:'
