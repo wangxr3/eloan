@@ -27,9 +27,9 @@ export default {
 <style lang="scss">
 @import "~assets/styles/function";
 .swiper {
-  height: px2rem(200) !important;
+  height: px2rem(400) !important;
   .image {
-    height: px2rem(200) !important;
+    height: px2rem(400) !important;
   }
 }
 .small {

@@ -51,9 +51,17 @@ export default {
               this.positionIdList = result[i].advertContentList
               this.lunbo = true
             } else if (result[i].advertPosition.positionId === this.positionId.tc) {
-              this.tc = true
-              this.first = true
-              this.tcImg = result[i].advertContentList[0]
+              const now = new Date()
+              const today = '' + now.getFullYear() + now.getMonth() + now.getDate()
+              const uNo = localStorage.getItem('uNo')
+              const directObj = result[i].advertContentList[0]
+			        if (!directObj || localStorage.getItem(uNo + today + directObj.prcode + directObj.groupCode) === '1') {} else if (directObj) {
+                this.tc = true
+                this.first = true
+                const hasShow = uNo + today + directObj.prcode + directObj.groupCode
+                localStorage.setItem(hasShow, '1')
+                this.tcImg = directObj
+              }
             } else {
               this.small = true
               this.smallImg = result[i].advertContentList[0]
