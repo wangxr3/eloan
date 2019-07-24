@@ -6,6 +6,8 @@ import my from '@/pages/my/my'
 import billList from '@/pages/bill/bill_list'
 import billDetail from '@/pages/bill/bill_detail'
 import login from '@/pages/login/login'
+import coupon from '@/pages/coupon/coupon'
+import active from '@/pages/active/active'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -37,6 +39,16 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/coupon',
+      name: 'coupon',
+      component: coupon
+    },
+    {
+      path: '/active',
+      name: 'active',
+      component: active
     }
   ]
 })

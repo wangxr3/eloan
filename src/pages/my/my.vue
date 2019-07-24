@@ -17,7 +17,7 @@
             <mt-cell title="账单管理" is-link to="/bill_list">
             <img slot="icon" src="~assets/images/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="优惠券管理" is-link to="">
+            <mt-cell title="优惠券管理" is-link to="/coupon">
             <img slot="icon" src="~assets/images/logo.png" width="24" height="24">
             </mt-cell>
             <mt-cell title="分享易贷" is-link to="">

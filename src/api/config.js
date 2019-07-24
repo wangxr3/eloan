@@ -17,19 +17,47 @@ export const global = (() => {
   if (debug) {
     if (env === 'dev') {
       dev = true
-      host = '172.28.38.83'
+      host = '172.28.38.108'
       marketAddress = `https://sit-apis.qianbao.com/`
     }
     protocol = 'http:'
     imgHost = '172.28.38.34/'
     // imgHost = 'dev-apis.qianbao.com/loan/v1/'
   }
-  marketAddress = `https://sit-apis.qianbao.com/`
+  marketAddress = `https://sit1-apis.qianbao.com/`
   interfaceRoot = `${protocol}//${host}/`
   imgRoot = `${protocol}//${imgHost}`
   return {interfaceRoot, imgRoot, dev, marketAddress}
 })()
 
+export const advPostiongIds = {
+  'index_1': '20180711000001',
+  'index_2': '20180711000002',
+  'index_tc': '20180711000003',
+  'index_btn': '20180808245077',
+  'third_login': '20180711000007',
+  'active': '20180711000005',
+  'active_tc': '20180711000004',
+  'active_btn': '20180808245079',
+  'my': '20180711000006',
+  'supermarket': '20180711000009',
+  'add_amount_btn': '20180808245078',
+  'flow_success': '20180808245074',
+  'bill_list': '20180808245073',
+  'withdrawal_state': '20180808245072',
+  'judai': '20181207246688',
+  'shz': '20181127246494',
+  'myTop': '20181127246495',
+  'yewu_': '20181217247780',
+  'fkReview': '20190603303310',
+  'fkjd': '20190603303311'
+}
+export const advJump = {
+  'LOAN_INDEX': 'control.html',
+  'LOAN_FLOW': 'control.html',
+  'BILL_LIST': 'bill_list.html',
+  'VOUCHER_LIST': 'coupon.html'
+}
 /**
  * 调用API公共方法
  * @param url API地址
