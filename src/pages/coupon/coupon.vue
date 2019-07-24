@@ -30,7 +30,7 @@ export default {
   created () {},
   methods: {
     getVoucherList () {
-      const params = {
+      let params = {
         status: '-1,0,1,2',
         sortListStr: JSON.stringify([{ name: 'endTime', order: false }])
       }

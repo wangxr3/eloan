@@ -42,7 +42,7 @@ export default {
       for (var p1 in this.positionId) {
         positionIdList.push(this.positionId[p1])
       }
-      const param = { appType: 'H5', positionId: positionIdList }
+      let param = { appType: 'H5', positionId: positionIdList }
       advert(param).then(data => {
         let result = data.result
         for (var i = 0; i < result.length; i++) {
@@ -51,14 +51,14 @@ export default {
               this.positionIdList = result[i].advertContentList
               this.lunbo = true
             } else if (result[i].advertPosition.positionId === this.positionId.tc) {
-              const now = new Date()
-              const today = '' + now.getFullYear() + now.getMonth() + now.getDate()
-              const uNo = localStorage.getItem('uNo')
-              const directObj = result[i].advertContentList[0]
+              let now = new Date()
+              let today = '' + now.getFullYear() + now.getMonth() + now.getDate()
+              let uNo = localStorage.getItem('uNo')
+              let directObj = result[i].advertContentList[0]
               if (!directObj || localStorage.getItem(uNo + today + directObj.prcode + directObj.groupCode) === '1') {} else if (directObj) {
                 this.tc = true
                 this.first = true
-                const hasShow = uNo + today + directObj.prcode + directObj.groupCode
+                let hasShow = uNo + today + directObj.prcode + directObj.groupCode
                 localStorage.setItem(hasShow, '1')
                 this.tcImg = directObj
               }
